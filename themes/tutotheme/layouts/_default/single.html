@@ -1,0 +1,13 @@
+{{ define "main" }}
+
+<div class="single-content">
+    <div class="main-wrap clearfix">
+        {{ with .Params.img }}
+            <img src="/images/{{ . }}" alt="blog">
+        {{ end }}
+        <h1>{{ .Title }}</h1>
+        <p> {{ .Description }}</p>
+    </div>
+</div>
+
+{{ end }}

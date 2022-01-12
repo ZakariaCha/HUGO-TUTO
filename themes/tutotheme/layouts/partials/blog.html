@@ -1,0 +1,28 @@
+<div class="main-wrap">
+  <h2 class="blog-title">Check out our blog</h2>
+  <div class="blog-cards">
+    {{ range where site.RegularPages "Type" "blog_posts" }}
+      <div class="blog-card">
+        <img src="images/{{ .Params.img }}" alt="{{ .Params.img }}" />
+        <data class="details-card">
+          <h3>{{ .Title }}</h3>
+          <p>{{ .Description }}</p>
+          <a href="{{ .Permalink }}">See more ...</a>
+          <p class="post-tags">
+            {{ range (.GetTerms "tags" ) }}
+              <a href="{{ .Permalink }}"> {{ .LinkTitle }}</a>
+            {{ end }}
+          </p>
+          <div class="post-details">
+            <span class="post-date">
+              <time><small>{{ dateFormat .Site.Params.dateFormat .Date }}</small></time>
+            </span>
+            <p class="post-author">
+              <small>Posted by:</small> {{ .Params.author }}
+            </p>
+          </div> 
+        </data>
+      </div>
+    {{ end }}
+  </div>
+</div>  
